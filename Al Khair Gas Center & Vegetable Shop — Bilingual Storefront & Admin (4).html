@@ -1,0 +1,2526 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Al Khair Gas Center &amp; Vegetable Shop — Rahim Yar Khan</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Plus Jakarta Sans & Noto Nastaliq Urdu / Noto Sans Arabic Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Noto+Sans+Arabic:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans Arabic"', 'system-ui', '-apple-system', 'sans-serif'],
+            urdu: ['"Noto Nastaliq Urdu"', '"Noto Sans Arabic"', 'serif'],
+          },
+          colors: {
+            brand: {
+              900: '#064E3B',
+              800: '#065F46',
+              700: '#047857',
+              600: '#059669',
+              500: '#10B981',
+              50: '#ECFDF5',
+            },
+            gas: {
+              700: '#B45309',
+              600: '#D97706',
+              500: '#F59E0B',
+              50: '#FFFBEB',
+            },
+            canvas: '#F8FAFC',
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Base typography & smooth scrolling */
+    body {
+      font-family: "Plus Jakarta Sans", "Noto Sans Arabic", system-ui, -apple-system, sans-serif;
+      background-color: #F8FAFC;
+      color: #0F172A;
+      -webkit-tap-highlight-color: transparent;
+      overflow-x: hidden;
+    }
+
+    .font-urdu {
+      font-family: "Noto Nastaliq Urdu", "Noto Sans Arabic", serif;
+      line-height: 1.85;
+    }
+
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Hide scrollbar for horizontal category pills */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Language mode visibility helpers */
+    body.lang-en-only .urdu-label {
+      display: none !important;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-slide-up {
+      animation: slideUp 0.22s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-slate-900 min-h-screen flex flex-col">
+
+  <!-- Toast Notification Banner -->
+  <div id="toastBanner" class="fixed top-4 left-1/2 -translate-x-1/2 z-[100] w-[92%] max-w-md hidden">
+    <div id="toastCard" class="rounded-2xl px-4 py-3 shadow-xl border flex items-center justify-between gap-3 text-sm font-medium bg-slate-900 text-white border-slate-700">
+      <span id="toastMessage" class="flex-1"></span>
+      <button type="button" onclick="hideToast()" class="text-white/70 hover:text-white p-1 rounded-lg text-xs" aria-label="Close notification">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Top App Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-2xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5">
+      <div class="flex items-center justify-between gap-2 sm:gap-3">
+        <!-- Brand Mark & Title -->
+        <div class="flex items-center gap-3 min-w-0">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-brand-800 to-brand-600 text-white flex items-center justify-center shadow-sm shrink-0">
+            <!-- Clean Leaf & Flame Brand Vector Icon -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c-4.5 4.2-7 7.6-7 11a7 7 0 0014 0c0-3.4-2.5-6.8-7-11z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 11v6m0 0l-2.5-2.5M12 17l2.5-2.5" />
+            </svg>
+          </div>
+          <div class="min-w-0">
+            <div class="flex items-center gap-2 flex-wrap">
+              <h1 id="headerStoreName" class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight truncate">
+                Al Khair Gas Center &amp; Vegetable Shop
+              </h1>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 shrink-0">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                Open Now
+              </span>
+            </div>
+            <p class="text-[11px] sm:text-xs font-urdu text-brand-800 urdu-label leading-relaxed truncate">
+              الخیر گیس سینٹر اینڈ ویجیٹیبل شاپ • تازہ سبزیاں، پھل اور ایل پی جی سلنڈر
+            </p>
+            <p id="headerSubtitle" class="text-xs text-slate-500 truncate">
+              Rahim Yar Khan • Express Home Delivery
+            </p>
+          </div>
+        </div>
+
+        <!-- Publish & Share, Language Toggle & Owner Login Buttons -->
+        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <button
+            type="button"
+            onclick="openPublishModal()"
+            class="px-2.5 sm:px-3 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-gas-700 border border-amber-200 text-xs font-bold flex items-center gap-1.5 transition active:scale-95"
+            title="Publish & Share App Guide"
+          >
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+            </svg>
+            <span class="hidden md:inline">Publish &amp; Share</span>
+          </button>
+
+          <button
+            id="langToggleBtn"
+            type="button"
+            onclick="toggleLanguageMode()"
+            class="px-2.5 sm:px-3 py-2 rounded-xl bg-brand-50 hover:bg-brand-100 text-brand-900 border border-brand-200 text-xs font-bold flex items-center gap-1.5 transition active:scale-95"
+            title="Switch Language Display"
+          >
+            <span id="langToggleText">EN + اردو</span>
+          </button>
+
+          <button
+            id="adminHeaderBtn"
+            type="button"
+            onclick="openAdminModal()"
+            class="px-2.5 sm:px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200/80 text-slate-700 border border-slate-200 text-xs font-semibold flex items-center gap-1.5 transition active:scale-95"
+            title="Owner Login"
+          >
+            <svg id="adminLockSvg" class="w-4 h-4 text-slate-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0110 0v4" />
+            </svg>
+            <span id="adminBtnLabel" class="hidden sm:inline">Owner Login</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Search Bar & Category Filter Pills -->
+      <div class="mt-3.5 space-y-3">
+        <div class="relative">
+          <input
+            id="searchInput"
+            type="search"
+            oninput="handleSearch(this.value)"
+            placeholder="Search in English or Urdu (e.g. Tomatoes, ٹماٹر, Mango, آم, LPG, Rice)..."
+            class="w-full rounded-xl bg-slate-50 border border-slate-200 focus:bg-white focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 pl-10 pr-16 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition"
+          />
+          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8" />
+            <path stroke-linecap="round" d="M21 21l-4.35-4.35" />
+          </svg>
+          <button
+            id="clearSearchBtn"
+            type="button"
+            onclick="clearSearch()"
+            class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-500 hover:text-slate-800 bg-slate-200/70 px-2 py-0.5 rounded-md"
+          >
+            Clear
+          </button>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div id="categoryPillsContainer" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-0.5">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-5 pb-28 space-y-6">
+
+    <!-- Promotional / Quick Info Strip -->
+    <section aria-label="Store Highlights" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <div class="bg-white rounded-2xl border border-slate-200/90 p-3.5 flex items-center gap-3 shadow-2xs">
+        <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold text-slate-900">Farm-Fresh Daily Stock <span class="urdu-label font-urdu font-normal text-brand-800 ml-1">• تازہ سبزیاں و پھل</span></h2>
+          <p class="text-[11px] text-slate-500 mt-0.5">Hand-picked vegetables &amp; seasonal fruits every morning</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200/90 p-3.5 flex items-center gap-3 shadow-2xs">
+        <div class="w-10 h-10 rounded-xl bg-gas-50 text-gas-600 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
+          </svg>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold text-slate-900">LPG Refills &amp; Essentials <span class="urdu-label font-urdu font-normal text-gas-700 ml-1">• گیس و روزمرہ اشیاء</span></h2>
+          <p class="text-[11px] text-slate-500 mt-0.5">Domestic &amp; commercial LPG cylinders, cooking oil &amp; rice</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200/90 p-3.5 flex items-center gap-3 shadow-2xs">
+        <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold text-slate-900">Direct WhatsApp Checkout <span class="urdu-label font-urdu font-normal text-brand-800 ml-1">• واٹس ایپ آرڈر</span></h2>
+          <p id="deliveryPolicyBanner" class="text-[11px] text-slate-500 mt-0.5">Rahim Yar Khan • Express Home Delivery</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Catalog Section -->
+    <section class="space-y-3.5">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 id="catalogSectionTitle" class="text-base sm:text-lg font-extrabold text-slate-900">All Items / تمام اشیاء</h2>
+          <p class="text-xs text-slate-500">Select quantities and proceed to instant WhatsApp checkout</p>
+        </div>
+        <span id="catalogCountBadge" class="text-xs font-semibold text-slate-600 bg-white border border-slate-200 px-3 py-1 rounded-full tabular-nums">
+          0 items
+        </span>
+      </div>
+
+      <!-- Responsive Product Grid: 2 columns on mobile, 3-4 columns on desktop -->
+      <div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+        <!-- Product cards rendered dynamically -->
+      </div>
+
+      <!-- Empty Filter State -->
+      <div id="emptyStateBox" class="hidden bg-white rounded-3xl border border-slate-200 p-10 text-center space-y-3">
+        <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-500 flex items-center justify-center mx-auto">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8" />
+            <path stroke-linecap="round" d="M21 21l-4.35-4.35" />
+          </svg>
+        </div>
+        <h3 class="text-base font-bold text-slate-900">No matching products found</h3>
+        <p class="text-xs text-slate-500 max-w-xs mx-auto">Try clearing your search term or switching back to all categories.</p>
+        <button
+          type="button"
+          onclick="resetFilters()"
+          class="px-4 py-2 rounded-xl bg-brand-800 hover:bg-brand-900 text-white text-xs font-semibold transition"
+        >
+          Show All Items
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating Bottom Cart Bar -->
+  <div id="floatingCartBar" class="fixed bottom-0 inset-x-0 z-30 p-3 sm:p-4 pointer-events-none hidden">
+    <div class="max-w-2xl mx-auto bg-slate-900 text-white rounded-2xl shadow-2xl border border-slate-800 px-4 py-3 flex items-center justify-between gap-3 pointer-events-auto animate-slide-up">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-600 text-white font-extrabold text-sm flex items-center justify-center tabular-nums">
+          <span id="cartBarItemCount">0</span>
+        </div>
+        <div>
+          <div class="text-[11px] text-slate-400 font-medium">Estimated Subtotal</div>
+          <div id="cartBarTotalAmount" class="text-base font-extrabold text-white tabular-nums">Rs. 0</div>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        onclick="openCartDrawer()"
+        class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-sm font-bold shadow-md flex items-center gap-2 transition active:scale-95"
+      >
+        <span>Review &amp; Order</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Clean Commercial Footer -->
+  <footer class="bg-white border-t border-slate-200 py-6 px-4 sm:px-6 text-xs text-slate-500 mt-auto">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="text-center sm:text-left">
+        <span id="footerStoreName" class="font-bold text-slate-800">Al Khair Gas Center &amp; Vegetable Shop</span>
+        <span> • Rahim Yar Khan • Express Home Delivery</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <button type="button" onclick="openPublishModal()" class="text-brand-700 hover:text-brand-900 font-semibold transition">
+          Publish &amp; Share
+        </button>
+        <button type="button" onclick="openAdminModal()" class="text-slate-500 hover:text-brand-700 font-semibold transition">
+          Store Admin
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-over Cart & Checkout Drawer -->
+  <div id="cartDrawerOverlay" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs hidden justify-end">
+    <div class="bg-white w-full max-w-lg h-full flex flex-col shadow-2xl animate-slide-up">
+      <!-- Drawer Header -->
+      <div class="px-5 py-4 border-b border-slate-200 flex items-center justify-between bg-white">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-base font-extrabold text-slate-900">Your Cart &amp; Checkout</h3>
+            <p class="text-[11px] text-slate-500">Rahim Yar Khan • Express Home Delivery</p>
+          </div>
+        </div>
+        <button
+          type="button"
+          onclick="closeCartDrawer()"
+          class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition"
+          aria-label="Close cart"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Drawer Scrollable Body -->
+      <div class="flex-1 overflow-y-auto p-5 space-y-5">
+        <!-- Itemized Cart List -->
+        <div id="drawerCartItems" class="space-y-2.5">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <!-- Order Summary Card -->
+        <div id="orderSummaryCard" class="bg-slate-50 rounded-2xl border border-slate-200 p-4 space-y-2 text-sm">
+          <div class="flex justify-between text-slate-600">
+            <span>Subtotal</span>
+            <span id="drawerSubtotal" class="font-semibold text-slate-900 tabular-nums">Rs. 0</span>
+          </div>
+          <div class="flex justify-between text-slate-600">
+            <span id="drawerDeliveryLabel">Delivery Fee</span>
+            <span id="drawerDeliveryFee" class="font-semibold text-slate-900 tabular-nums">Rs. 0</span>
+          </div>
+          <div id="freeDeliveryHint" class="hidden text-[11px] text-emerald-700 font-semibold bg-emerald-50 border border-emerald-200 rounded-lg px-2.5 py-1.5">
+            <!-- Free delivery progress message -->
+          </div>
+          <div class="border-t border-slate-200 pt-2.5 flex justify-between items-center text-base font-extrabold text-slate-900">
+            <span>Grand Total</span>
+            <span id="drawerGrandTotal" class="text-brand-800 tabular-nums">Rs. 0</span>
+          </div>
+        </div>
+
+        <!-- Customer Checkout Form -->
+        <form id="checkoutForm" onsubmit="submitWhatsAppOrder(event)" class="space-y-3.5">
+          <h4 class="text-xs font-extrabold uppercase tracking-wider text-slate-500">Delivery Details</h4>
+
+          <div>
+            <label for="custName" class="block text-xs font-bold text-slate-700 mb-1">Full Name *</label>
+            <input
+              id="custName"
+              type="text"
+              required
+              placeholder="Enter your full name"
+              class="w-full rounded-xl border border-slate-300 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 px-3.5 py-2.5 text-sm outline-none transition"
+            />
+          </div>
+
+          <div>
+            <label for="custPhone" class="block text-xs font-bold text-slate-700 mb-1">Mobile Number *</label>
+            <input
+              id="custPhone"
+              type="tel"
+              required
+              placeholder="e.g. 03001234567"
+              class="w-full rounded-xl border border-slate-300 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 px-3.5 py-2.5 text-sm outline-none tabular-nums transition"
+            />
+          </div>
+
+          <div>
+            <label for="custAddress" class="block text-xs font-bold text-slate-700 mb-1">Delivery Address (House / Street / Area in Rahim Yar Khan) *</label>
+            <textarea
+              id="custAddress"
+              rows="2"
+              required
+              placeholder="House #, Street, Colony or Sector in Rahim Yar Khan"
+              class="w-full rounded-xl border border-slate-300 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 px-3.5 py-2 text-sm outline-none transition"
+            ></textarea>
+          </div>
+
+          <div>
+            <label for="custNote" class="block text-xs font-bold text-slate-700 mb-1">Delivery Note (Optional)</label>
+            <input
+              id="custNote"
+              type="text"
+              placeholder="e.g. Call upon arrival or preferred delivery time"
+              class="w-full rounded-xl border border-slate-300 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 px-3.5 py-2 text-sm outline-none transition"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="w-full py-3.5 rounded-2xl bg-brand-700 hover:bg-brand-800 text-white font-bold text-sm shadow-lg flex items-center justify-center gap-2 transition active:scale-98"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+            <span>Place Order on WhatsApp</span>
+          </button>
+        </form>
+
+        <!-- Instant Order Confirmation & Fallback WhatsApp Link -->
+        <div id="orderConfirmationBox" class="hidden bg-emerald-50 border border-emerald-200 rounded-2xl p-4 space-y-3">
+          <div class="flex items-start gap-2.5">
+            <div class="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <h5 id="confirmOrderHeading" class="text-sm font-extrabold text-emerald-950">Order Ready &amp; Dispatched!</h5>
+              <p class="text-xs text-emerald-800 mt-0.5">
+                If WhatsApp did not open automatically, tap the direct button below to send your receipt.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-2">
+            <a
+              id="fallbackWhatsAppLink"
+              href="https://wa.me/923078242404"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex-1 py-2.5 px-4 rounded-xl bg-brand-800 hover:bg-brand-900 text-white text-xs font-bold text-center inline-flex items-center justify-center gap-1.5 transition"
+            >
+              <span>Open WhatsApp Again</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </a>
+            <button
+              type="button"
+              onclick="copyLastReceipt()"
+              class="py-2.5 px-4 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 text-xs font-bold transition"
+            >
+              Copy Receipt
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Publish & Share App Modal -->
+  <div id="publishModalOverlay" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs hidden items-center justify-center p-3 sm:p-5">
+    <div class="bg-white rounded-3xl w-full max-w-2xl max-h-[90vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden animate-slide-up">
+      <div class="px-5 py-4 bg-brand-900 text-white flex items-center justify-between">
+        <div>
+          <h3 class="text-base font-extrabold">Publish &amp; Share Your Store App</h3>
+          <p class="text-[11px] text-emerald-200">Go live free on GitHub Pages or web hosting &amp; share with customers</p>
+        </div>
+        <button
+          type="button"
+          onclick="closePublishModal()"
+          class="w-8 h-8 rounded-xl bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition"
+          aria-label="Close publish guide"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto p-5 space-y-4 text-xs sm:text-sm text-slate-700">
+        <!-- Step 1: GitHub Pages -->
+        <div class="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-4 space-y-2">
+          <div class="flex items-center justify-between gap-2">
+            <h4 class="font-extrabold text-brand-950 text-sm">1. Publish Free on GitHub Pages</h4>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-3 py-1 rounded-lg bg-brand-800 hover:bg-brand-900 text-white text-xs font-bold shrink-0"
+            >
+              Open GitHub
+            </a>
+          </div>
+          <ol class="list-decimal list-inside space-y-1 text-xs text-slate-700">
+            <li>Save this complete file as <code class="bg-white px-1.5 py-0.5 rounded border border-emerald-200 font-bold">index.html</code> inside a folder on your device.</li>
+            <li>Upload <code class="bg-white px-1.5 py-0.5 rounded border border-emerald-200 font-bold">index.html</code> to a new public repository on GitHub.</li>
+            <li>Go to <strong>Settings &rarr; Pages</strong>, select <strong>Deploy from a branch</strong> (<code>main</code> / root), and copy your live store URL to share with customers.</li>
+          </ol>
+        </div>
+
+        <!-- Step 2: Custom Domain / Web Hosting -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-2">
+          <h4 class="font-extrabold text-slate-900 text-sm">2. Publish on Your Own Web Hosting</h4>
+          <ol class="list-decimal list-inside space-y-1 text-xs text-slate-600">
+            <li>Open your web hosting file manager (such as <code class="bg-white px-1.5 py-0.5 rounded border border-slate-200">public_html</code>).</li>
+            <li>Upload <code class="bg-white px-1.5 py-0.5 rounded border border-slate-200 font-bold">index.html</code> directly to the root directory.</li>
+            <li>Your store will run under your own clean domain without third-party branding.</li>
+          </ol>
+        </div>
+
+        <!-- Step 3: Add to Home Screen App Shortcut -->
+        <div class="bg-amber-50/70 border border-amber-200 rounded-2xl p-4 space-y-1.5">
+          <h4 class="font-extrabold text-gas-700 text-sm">3. Install as Home Screen App Shortcut</h4>
+          <p class="text-xs text-slate-700">
+            Tell customers in Rahim Yar Khan to open your live link in Chrome (Android) or Safari (iPhone), tap the browser menu (<strong>⋮</strong> or <strong>Share</strong>), and select <strong>Add to Home Screen</strong> for one-tap ordering.
+          </p>
+          <p class="text-xs font-urdu text-brand-900 urdu-label" dir="rtl">
+            گاہکوں کو بتائیں کہ لنک کھول کر براؤزر مینو سے <strong>Add to Home Screen</strong> کر لیں تاکہ ایپ کی طرح ایک کلک میں کھلے۔
+          </p>
+        </div>
+
+        <!-- Ready-to-Share Customer Promo Message -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-4 space-y-2.5">
+          <div class="flex items-center justify-between gap-2">
+            <h4 class="font-extrabold text-slate-900 text-sm">Ready-to-Send WhatsApp Broadcast Message</h4>
+            <button
+              type="button"
+              onclick="copyPromoMessage()"
+              class="px-3 py-1.5 rounded-xl bg-brand-700 hover:bg-brand-800 text-white text-xs font-bold transition"
+            >
+              Copy Message
+            </button>
+          </div>
+          <pre id="promoMessageBox" class="bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs text-slate-800 whitespace-pre-wrap font-sans">*Al Khair Gas Center &amp; Vegetable Shop* (Rahim Yar Khan)
+تازہ سبزیاں، پھل، ایل پی جی گیس سلنڈر اور روزمرہ اشیاء اب آن لائن آرڈر کریں!
+
+Order fresh vegetables, seasonal fruits, LPG cylinder refills &amp; daily essentials with express home delivery.
+Tap the link below to view today's rates and order on WhatsApp:
+[Paste Your Live Link Here]
+
+WhatsApp Order Line: 923078242404</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Owner / Admin PIN & Dashboard Modal -->
+  <div id="adminModalOverlay" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs hidden items-center justify-center p-3 sm:p-5">
+    <div class="bg-white rounded-3xl w-full max-w-4xl max-h-[92vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden animate-slide-up">
+
+      <!-- Modal Top Bar -->
+      <div class="px-5 py-4 bg-slate-900 text-white flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-xl bg-brand-600 flex items-center justify-center">
+            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-sm sm:text-base font-extrabold">Store Management Panel</h3>
+            <p class="text-[11px] text-slate-400">Manage rates, inventory, orders &amp; WhatsApp settings</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button
+            id="adminLockActionBtn"
+            type="button"
+            onclick="lockAdminSession()"
+            class="hidden px-3 py-1.5 rounded-xl bg-red-600/90 hover:bg-red-600 text-white text-xs font-bold transition"
+          >
+            Lock Panel
+          </button>
+          <button
+            type="button"
+            onclick="closeAdminModal()"
+            class="w-8 h-8 rounded-xl bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition"
+            aria-label="Close admin panel"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 1: PIN Lock Screen -->
+      <div id="adminPinGate" class="p-8 max-w-sm mx-auto w-full text-center space-y-4 my-auto">
+        <div class="w-14 h-14 rounded-2xl bg-brand-50 text-brand-700 flex items-center justify-center mx-auto border border-brand-200">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0110 0v4" />
+          </svg>
+        </div>
+        <div>
+          <h4 class="text-lg font-extrabold text-slate-900">Enter Owner PIN</h4>
+          <p class="text-xs text-slate-500 mt-1">Restricted access for store rates and settings (Default PIN: 1234)</p>
+        </div>
+
+        <form onsubmit="handleAdminPinSubmit(event)" class="space-y-3">
+          <input
+            id="adminPinInput"
+            type="password"
+            inputmode="numeric"
+            maxlength="12"
+            required
+            placeholder="••••"
+            class="w-full text-center tracking-[0.4em] text-xl font-extrabold rounded-2xl border border-slate-300 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 px-4 py-3 outline-none"
+          />
+          <p id="adminPinError" class="hidden text-xs font-semibold text-red-600"></p>
+          <button
+            type="submit"
+            class="w-full py-3 rounded-xl bg-brand-800 hover:bg-brand-900 text-white text-sm font-bold shadow-sm transition"
+          >
+            Unlock Dashboard
+          </button>
+        </form>
+      </div>
+
+      <!-- Step 2: Unlocked Admin Dashboard -->
+      <div id="adminDashboardContent" class="hidden flex-1 flex flex-col overflow-hidden">
+        <!-- Admin Tabs -->
+        <div class="px-5 pt-3 bg-slate-50 border-b border-slate-200 flex items-center gap-2 overflow-x-auto no-scrollbar">
+          <button
+            id="tabBtnProducts"
+            type="button"
+            onclick="switchAdminTab('products')"
+            class="px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-bold border-b-2 border-brand-700 text-brand-800 bg-white whitespace-nowrap transition"
+          >
+            Products &amp; Rates
+          </button>
+          <button
+            id="tabBtnOrders"
+            type="button"
+            onclick="switchAdminTab('orders')"
+            class="px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-bold border-b-2 border-transparent text-slate-600 hover:text-slate-900 whitespace-nowrap transition"
+          >
+            Orders Log
+          </button>
+          <button
+            id="tabBtnSettings"
+            type="button"
+            onclick="switchAdminTab('settings')"
+            class="px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-bold border-b-2 border-transparent text-slate-600 hover:text-slate-900 whitespace-nowrap transition"
+          >
+            Store Settings
+          </button>
+        </div>
+
+        <!-- Tab Panels Container -->
+        <div class="flex-1 overflow-y-auto p-5 space-y-5">
+
+          <!-- TAB 1: PRODUCTS & RATES -->
+          <div id="panelProducts" class="space-y-5">
+            <!-- Add New Item Form -->
+            <div class="bg-slate-50 rounded-2xl border border-slate-200 p-4 space-y-3">
+              <h4 class="text-xs font-extrabold uppercase tracking-wider text-slate-700">+ Add New Vegetable, Fruit, Gas or Essential Item</h4>
+              <form onsubmit="handleAddNewProduct(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2.5">
+                <input
+                  id="addProdName"
+                  type="text"
+                  required
+                  placeholder="English Name (e.g. Okra)"
+                  class="lg:col-span-2 rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs sm:text-sm outline-none focus:border-brand-600"
+                />
+                <input
+                  id="addProdNameUr"
+                  type="text"
+                  dir="rtl"
+                  required
+                  placeholder="اردو نام (مثلاً بھنڈی)"
+                  class="rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs sm:text-sm font-urdu outline-none focus:border-brand-600"
+                />
+                <select
+                  id="addProdCategory"
+                  class="rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs sm:text-sm outline-none focus:border-brand-600"
+                >
+                  <option value="Vegetables">Vegetables / سبزیاں</option>
+                  <option value="Fruits">Fruits / پھل</option>
+                  <option value="Gas & Essentials">Gas &amp; Essentials / گیس و اشیاء</option>
+                </select>
+                <input
+                  id="addProdUnit"
+                  type="text"
+                  required
+                  placeholder="Unit (e.g. 1 kg)"
+                  class="rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs sm:text-sm outline-none focus:border-brand-600"
+                />
+                <div class="flex gap-2">
+                  <input
+                    id="addProdPrice"
+                    type="number"
+                    min="1"
+                    step="1"
+                    required
+                    placeholder="Price (Rs.)"
+                    class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs sm:text-sm outline-none focus:border-brand-600 tabular-nums"
+                  />
+                </div>
+                <div class="sm:col-span-2 lg:col-span-5 flex flex-col sm:flex-row gap-2">
+                  <input
+                    id="addProdImage"
+                    type="text"
+                    placeholder="Photo URL (optional — leave blank for studio SVG fallback)"
+                    class="flex-1 rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs outline-none focus:border-brand-600"
+                  />
+                  <label class="px-3 py-2 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-xs font-bold text-slate-700 cursor-pointer text-center shrink-0 transition">
+                    <span>Upload Photo</span>
+                    <input
+                      id="addProdFile"
+                      type="file"
+                      accept="image/*"
+                      onchange="handleNewProductFile(this)"
+                      class="hidden"
+                    />
+                  </label>
+                </div>
+                <button
+                  type="submit"
+                  class="px-4 py-2 rounded-xl bg-brand-700 hover:bg-brand-800 text-white text-xs font-bold shrink-0 transition"
+                >
+                  + Add Item
+                </button>
+              </form>
+            </div>
+
+            <!-- Inline Editable Products Table/List -->
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-between">
+                <h4 class="text-sm font-extrabold text-slate-900">Manage Catalog &amp; Daily Rates</h4>
+                <button
+                  type="button"
+                  onclick="resetDefaultCatalog()"
+                  class="text-xs font-semibold text-slate-500 hover:text-red-600 underline transition"
+                >
+                  Reset to Default Catalog (26 Items)
+                </button>
+              </div>
+
+              <div id="adminProductRows" class="divide-y divide-slate-200 border border-slate-200 rounded-2xl overflow-hidden bg-white">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: ORDERS LOG -->
+          <div id="panelOrders" class="hidden space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <h4 class="text-sm font-extrabold text-slate-900">Submitted Orders History</h4>
+                <p class="text-xs text-slate-500">All orders generated through this browser are logged below</p>
+              </div>
+              <button
+                type="button"
+                onclick="clearOrdersLog()"
+                class="px-3 py-1.5 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 text-xs font-bold transition"
+              >
+                Clear Log
+              </button>
+            </div>
+
+            <div id="adminOrdersContainer" class="space-y-3">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <!-- TAB 3: STORE SETTINGS -->
+          <div id="panelSettings" class="hidden">
+            <form onsubmit="handleSaveStoreSettings(event)" class="space-y-4 max-w-2xl">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="sm:col-span-2">
+                  <label for="setStoreName" class="block text-xs font-bold text-slate-700 mb-1">Store Name *</label>
+                  <input
+                    id="setStoreName"
+                    type="text"
+                    required
+                    class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm outline-none focus:border-brand-600"
+                  />
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="setStoreTagline" class="block text-xs font-bold text-slate-700 mb-1">Store Tagline *</label>
+                  <input
+                    id="setStoreTagline"
+                    type="text"
+                    required
+                    class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm outline-none focus:border-brand-600"
+                  />
+                </div>
+
+                <div>
+                  <label for="setDeliveryFee" class="block text-xs font-bold text-slate-700 mb-1">Delivery Fee (Rs.) *</label>
+                  <input
+                    id="setDeliveryFee"
+                    type="number"
+                    min="0"
+                    step="1"
+                    required
+                    class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm outline-none focus:border-brand-600 tabular-nums"
+                  />
+                </div>
+
+                <div>
+                  <label for="setFreeDeliveryThreshold" class="block text-xs font-bold text-slate-700 mb-1">Free Delivery Minimum Order (Rs., 0 to disable)</label>
+                  <input
+                    id="setFreeDeliveryThreshold"
+                    type="number"
+                    min="0"
+                    step="1"
+                    required
+                    class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm outline-none focus:border-brand-600 tabular-nums"
+                  />
+                </div>
+
+                <!-- WhatsApp Order Number Configuration -->
+                <div class="sm:col-span-2 bg-brand-50/70 border border-brand-200 rounded-2xl p-4 space-y-2.5">
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <label for="setWhatsAppNumber" class="text-xs font-extrabold text-brand-900">WhatsApp Order Number *</label>
+                    <span class="text-xs text-brand-800 font-semibold">
+                      Formatted: <code id="waFormattedPreview" class="bg-white px-2 py-0.5 rounded border border-brand-200 tabular-nums">923078242404</code>
+                    </span>
+                  </div>
+                  <div class="flex flex-col sm:flex-row gap-2">
+                    <input
+                      id="setWhatsAppNumber"
+                      type="text"
+                      required
+                      oninput="updateWaPreview()"
+                      placeholder="e.g. 923078242404 or 03078242404"
+                      class="flex-1 rounded-xl border border-brand-300 bg-white px-3.5 py-2 text-sm outline-none focus:border-brand-700 tabular-nums"
+                    />
+                    <button
+                      type="button"
+                      onclick="testWhatsAppNumber()"
+                      class="px-4 py-2 rounded-xl bg-brand-700 hover:bg-brand-800 text-white text-xs font-bold shrink-0 transition"
+                    >
+                      Test WhatsApp Number
+                    </button>
+                  </div>
+                  <p class="text-[11px] text-slate-600">
+                    Automatically converts local format (<code>03...</code>) to international format (<code>923...</code>) for reliable WhatsApp delivery.
+                  </p>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="setAdminPin" class="block text-xs font-bold text-slate-700 mb-1">Change Admin PIN (Min 4 digits) *</label>
+                  <input
+                    id="setAdminPin"
+                    type="password"
+                    minlength="4"
+                    maxlength="12"
+                    required
+                    class="w-full sm:w-64 rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm outline-none focus:border-brand-600"
+                  />
+                </div>
+              </div>
+
+              <div class="pt-2">
+                <button
+                  type="submit"
+                  class="px-6 py-2.5 rounded-xl bg-brand-800 hover:bg-brand-900 text-white text-sm font-bold shadow-sm transition"
+                >
+                  Save Settings
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Logic -->
+  <script>
+    /* =====================================================================
+       1. CONSTANTS, STUDIO SVG FALLBACKS & 26-ITEM BILINGUAL CATALOG
+    ===================================================================== */
+    const STORAGE_KEYS = {
+      SETTINGS: 'alkhair_bilingual_settings_v4',
+      PRODUCTS: 'alkhair_bilingual_products_v4',
+      ORDERS: 'alkhair_orders_v4',
+      LANG_MODE: 'alkhair_lang_mode_v4'
+    };
+
+    const CATEGORIES = [
+      { id: 'All Items', label: 'All Items / تمام اشیاء' },
+      { id: 'Vegetables', label: 'Vegetables / سبزیاں' },
+      { id: 'Fruits', label: 'Fruits / پھل' },
+      { id: 'Gas & Essentials', label: 'Gas & Essentials / گیس و اشیاء' }
+    ];
+
+    const DEFAULT_WHATSAPP = '923078242404';
+
+    const DEFAULT_SETTINGS = {
+      storeName: 'Al Khair Gas Center & Vegetable Shop',
+      tagline: 'Rahim Yar Khan • Express Home Delivery',
+      deliveryFee: 50,
+      freeDeliveryMin: 1500,
+      whatsappNumber: DEFAULT_WHATSAPP,
+      adminPin: '1234'
+    };
+
+    /* Rich Studio SVG Generator so every item ALWAYS has a crisp visual offline */
+    function buildStudioFallbackSvg(visualKey) {
+      const configs = {
+        tomato: { bg1: '#FEF2F2', bg2: '#FEE2E2', body: '#DC2626', accent: '#15803D', shape: 'round' },
+        potato: { bg1: '#FFFBEB', bg2: '#FEF3C7', body: '#D97706', accent: '#92400E', shape: 'oval' },
+        onion: { bg1: '#FAF5FF', bg2: '#F3E8FF', body: '#9333EA', accent: '#7E22CE', shape: 'round' },
+        chili: { bg1: '#ECFDF5', bg2: '#D1FAE5', body: '#16A34A', accent: '#15803D', shape: 'pod' },
+        garlic: { bg1: '#F8FAFC', bg2: '#E2E8F0', body: '#CBD5E1', accent: '#64748B', shape: 'round' },
+        ginger: { bg1: '#FFFBEB', bg2: '#FDE68A', body: '#CA8A04', accent: '#854D0E', shape: 'oval' },
+        okra: { bg1: '#F0FDF4', bg2: '#DCFCE7', body: '#15803D', accent: '#166534', shape: 'pod' },
+        spinach: { bg1: '#ECFDF5', bg2: '#A7F3D0', body: '#059669', accent: '#065F46', shape: 'leaf' },
+        cauliflower: { bg1: '#F0FDF4', bg2: '#DCFCE7', body: '#F8FAFC', accent: '#16A34A', shape: 'round' },
+        eggplant: { bg1: '#F5F3FF', bg2: '#DDD6FE', body: '#6D28D9', accent: '#15803D', shape: 'oval' },
+        karela: { bg1: '#ECFDF5', bg2: '#BBF7D0', body: '#166534', accent: '#14532D', shape: 'pod' },
+        lauki: { bg1: '#F0FDF4', bg2: '#DCFCE7', body: '#4ADE80', accent: '#15803D', shape: 'oval' },
+        peas: { bg1: '#ECFDF5', bg2: '#D1FAE5', body: '#22C55E', accent: '#15803D', shape: 'pod' },
+        carrot: { bg1: '#FFF7ED', bg2: '#FFEDD5', body: '#EA580C', accent: '#15803D', shape: 'oval' },
+        lemon: { bg1: '#FEFCE8', bg2: '#FEF08A', body: '#EAB308', accent: '#15803D', shape: 'oval' },
+        herbs: { bg1: '#ECFDF5', bg2: '#D1FAE5', body: '#10B981', accent: '#047857', shape: 'leaf' },
+        apple: { bg1: '#FEF2F2', bg2: '#FECACA', body: '#B91C1C', accent: '#15803D', shape: 'round' },
+        kinnow: { bg1: '#FFF7ED', bg2: '#FED7AA', body: '#F97316', accent: '#15803D', shape: 'round' },
+        banana: { bg1: '#FEFCE8', bg2: '#FEF08A', body: '#EAB308', accent: '#854D0E', shape: 'arc' },
+        mango: { bg1: '#FFFBEB', bg2: '#FDE047', body: '#F59E0B', accent: '#16A34A', shape: 'oval' },
+        pomegranate: { bg1: '#FFF1F2', bg2: '#FFE4E6', body: '#BE123C', accent: '#881337', shape: 'round' },
+        guava: { bg1: '#F0FDF4', bg2: '#DCFCE7', body: '#65A30D', accent: '#3F6212', shape: 'round' },
+        lpg: { bg1: '#FFFBEB', bg2: '#FDE68A', body: '#D97706', accent: '#92400E', shape: 'cylinder' },
+        oil: { bg1: '#FEFCE8', bg2: '#FEF08A', body: '#EAB308', accent: '#B45309', shape: 'cylinder' },
+        rice: { bg1: '#F8FAFC', bg2: '#E2E8F0', body: '#FFFFFF', accent: '#047857', shape: 'cylinder' }
+      };
+
+      const c = configs[visualKey] || configs.tomato;
+      let graphic = '';
+
+      if (c.shape === 'cylinder') {
+        graphic = `
+          <rect x="165" y="42" width="70" height="22" rx="8" fill="none" stroke="${c.accent}" stroke-width="8"/>
+          <rect x="188" y="56" width="24" height="18" rx="4" fill="${c.accent}"/>
+          <rect x="145" y="72" width="110" height="150" rx="34" fill="${c.body}" stroke="${c.accent}" stroke-width="3"/>
+          <rect x="145" y="128" width="110" height="22" fill="${c.accent}" opacity="0.22"/>
+          <circle cx="176" cy="108" r="10" fill="#FFFFFF" opacity="0.35"/>
+        `;
+      } else if (c.shape === 'arc') {
+        graphic = `
+          <path d="M125 185 C165 205, 245 175, 275 95 C255 135, 195 162, 132 162 Z" fill="${c.body}"/>
+          <path d="M115 165 C155 185, 235 155, 265 75 C245 115, 185 142, 122 142 Z" fill="#FACC15"/>
+        `;
+      } else if (c.shape === 'pod') {
+        graphic = `
+          <path d="M118 176 Q195 188 278 92 Q212 124 118 176 Z" fill="${c.body}"/>
+          <circle cx="165" cy="152" r="9" fill="#DCFCE7" opacity="0.7"/>
+          <circle cx="195" cy="142" r="9" fill="#DCFCE7" opacity="0.7"/>
+          <circle cx="225" cy="128" r="8" fill="#DCFCE7" opacity="0.7"/>
+        `;
+      } else if (c.shape === 'leaf') {
+        graphic = `
+          <path d="M200 65 C135 95, 128 168, 200 208 C272 168, 265 95, 200 65 Z" fill="${c.body}"/>
+          <path d="M200 78 L200 212" stroke="#ECFDF5" stroke-width="5" stroke-linecap="round"/>
+        `;
+      } else if (c.shape === 'oval') {
+        graphic = `
+          <ellipse cx="200" cy="150" rx="74" ry="48" transform="rotate(-12 200 150)" fill="${c.body}"/>
+          <path d="M200 100 C192 84, 176 82, 168 92" fill="none" stroke="${c.accent}" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="172" cy="134" r="10" fill="#FFFFFF" opacity="0.22"/>
+        `;
+      } else {
+        graphic = `
+          <circle cx="200" cy="150" r="64" fill="${c.body}"/>
+          <path d="M200 86 C192 68, 174 66, 166 76 C180 80, 192 84, 200 86 Z" fill="${c.accent}"/>
+          <path d="M200 86 C208 68, 226 66, 234 76 C220 80, 208 84, 200 86 Z" fill="${c.accent}"/>
+          <circle cx="178" cy="128" r="14" fill="#FFFFFF" opacity="0.25"/>
+        `;
+      }
+
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="${c.bg1}"/>
+            <stop offset="100%" stop-color="${c.bg2}"/>
+          </linearGradient>
+        </defs>
+        <rect width="400" height="280" fill="url(#g)"/>
+        <ellipse cx="200" cy="220" rx="78" ry="12" fill="#0F172A" opacity="0.08"/>
+        ${graphic}
+      </svg>`;
+
+      return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+    }
+
+    function handleProductImgError(imgEl, visualKey) {
+      if (!imgEl || imgEl.dataset.fallbackApplied === '1') return;
+      imgEl.dataset.fallbackApplied = '1';
+      imgEl.src = buildStudioFallbackSvg(visualKey);
+    }
+
+    /* 26 Complete Bilingual Items Across Vegetables, Fruits, and Gas & Essentials */
+    const DEFAULT_PRODUCTS = [
+      // 16 Vegetables
+      {
+        id: 'veg-tomato',
+        name: 'Fresh Tomatoes',
+        nameUr: 'تازہ ٹماٹر',
+        category: 'Vegetables',
+        unit: '1 kg',
+        price: 160,
+        inStock: true,
+        visualKey: 'tomato',
+        image: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'veg-potato',
+        name: 'Potatoes',
+        nameUr: 'آلو',
+        category: 'Vegetables',
+        unit: '1 kg',
+        price: 110,
+        inStock: true,
+        visualKey: 'potato',
+        image: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'veg-onion',
+        name: 'Onions',
+        nameUr: 'پیاز',
+        category: 'Vegetables',
+        unit: '1 kg',
+        price: 140,
+        inStock: true,
+        visualKey: 'onion',
+        image: 'https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'veg-chili',
+        name: 'Green Chilies',
+        nameUr: 'ہری مرچ',
+        category: 'Vegetables',
+        unit: '250 g',
+        price: 60,
+        inStock: true,
+        visualKey: 'chili',
+        image: 'https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'veg-garlic',
+        name: 'Garlic',
+        nameUr: 'لہسن',
+        category: 'Vegetables',
+        unit: '250 g',
+        price: 160,
+        inStock: true,
+        visualKey: 'garlic',
+        image: 'https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'veg-ginger',
+        name: 'Ginger',
+        nameUr: 'ادرک',
+        category: 'Vegetables',
+        unit: '250 g',
+        price: 180,
+        inStock: true,
+        visualKey: 'ginger',
+        image: 'https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'veg-okra',
+        name: 'Ladyfinger Okra',
+        nameUr: 'بھنڈی',
+        category: 'Vegetables',
+        unit: '1 kg',
+        price: 190,
+        inStock: true,
+        visualKey: 'okra',
+        image: 'https://images.unsplash.com/photo-1425543103986-22abb7d7e8d2?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'veg-spinach',
+        name: 'Spinach',
+        nameUr: 'پالک',
+        category: 'Vegetables',
+        unit: '1 Bunch',
+        price: 50,
+        inStock: true,
+        visualKey: 'spinach',
+        image: 'https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'veg-cauliflower',
+        name: 'Cauliflower',
+        nameUr: 'پھول گوبھی',
+        category: 'Vegetables',
+        unit: '1 kg',
+        price: 130,
+        inStock: true,
+        visualKey: 'cauliflower',
+        image: 'https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'veg-brinjal',
+        name: 'Brinjal Eggplant',
+        nameUr: 'بینگن',
+        category: 'Vegetables',
+        unit: '1 kg',
+        price: 120,
+        inStock: true,
+        visualKey: 'eggplant',
+        image: 'https://images.unsplash.com/photo-1615484477778-ca3b77940c25?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'veg-karela',
+        name: 'Bitter Gourd Karela',
+        nameUr: 'کریلا',
+        category: 'Vegetables',
+        unit: '1 kg',
+        price: 210,
+        inStock: true,
+        visualKey: 'karela',
+        image: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'veg-lauki',
+        name: 'Bottle Gourd Lauki',
+        nameUr: 'لوکی',
+        category: 'Vegetables',
+        unit: '1 kg',
+        price: 115,
+        inStock: true,
+        visualKey: 'lauki',
+        image: 'https://images.unsplash.com/photo-1590779033100-9f60a05a013d?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'veg-peas',
+        name: 'Peas',
+        nameUr: 'مٹر',
+        category: 'Vegetables',
+        unit: '1 kg',
+        price: 240,
+        inStock: true,
+        visualKey: 'peas',
+        image: 'https://images.unsplash.com/photo-1587735243615-c03f25aaff15?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'veg-carrot',
+        name: 'Carrot',
+        nameUr: 'گاجر',
+        category: 'Vegetables',
+        unit: '1 kg',
+        price: 125,
+        inStock: true,
+        visualKey: 'carrot',
+        image: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'veg-lemon',
+        name: 'Lemon',
+        nameUr: 'لیموں',
+        category: 'Vegetables',
+        unit: '250 g',
+        price: 90,
+        inStock: true,
+        visualKey: 'lemon',
+        image: 'https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'veg-herbs',
+        name: 'Coriander & Mint',
+        nameUr: 'دھنیا پودینہ',
+        category: 'Vegetables',
+        unit: '1 Bundle',
+        price: 40,
+        inStock: true,
+        visualKey: 'herbs',
+        image: 'https://images.unsplash.com/photo-1628556270448-4d4e4148e1b1?auto=format&fit=crop&w=600&q=80'
+      },
+
+      // 6 Fruits
+      {
+        id: 'frt-apple',
+        name: 'Apples Kala Kulu',
+        nameUr: 'سیب کالا کلو',
+        category: 'Fruits',
+        unit: '1 kg',
+        price: 320,
+        inStock: true,
+        visualKey: 'apple',
+        image: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'frt-kinnow',
+        name: 'Kinnow Mandarin',
+        nameUr: 'کنو',
+        category: 'Fruits',
+        unit: '1 Dozen',
+        price: 260,
+        inStock: true,
+        visualKey: 'kinnow',
+        image: 'https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'frt-banana',
+        name: 'Bananas',
+        nameUr: 'کیلے',
+        category: 'Fruits',
+        unit: '1 Dozen',
+        price: 180,
+        inStock: true,
+        visualKey: 'banana',
+        image: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'frt-mango',
+        name: 'Mangoes Sindhri',
+        nameUr: 'آم سندھڑی',
+        category: 'Fruits',
+        unit: '1 kg',
+        price: 290,
+        inStock: true,
+        visualKey: 'mango',
+        image: 'https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'frt-pomegranate',
+        name: 'Pomegranate',
+        nameUr: 'انار',
+        category: 'Fruits',
+        unit: '1 kg',
+        price: 380,
+        inStock: true,
+        visualKey: 'pomegranate',
+        image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'frt-guava',
+        name: 'Guava',
+        nameUr: 'امرود',
+        category: 'Fruits',
+        unit: '1 kg',
+        price: 170,
+        inStock: true,
+        visualKey: 'guava',
+        image: 'https://images.unsplash.com/photo-1536511132770-e5058c7e8c46?auto=format&fit=crop&w=600&q=80'
+      },
+
+      // 4 Gas & Essentials
+      {
+        id: 'gas-domestic',
+        name: 'LPG Cylinder Refill 11.8kg',
+        nameUr: 'ایل پی جی سلنڈر ری فل',
+        category: 'Gas & Essentials',
+        unit: '11.8 kg',
+        price: 3150,
+        inStock: true,
+        visualKey: 'lpg',
+        image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'gas-commercial',
+        name: 'LPG Cylinder Refill Commercial',
+        nameUr: 'کمرشل سلنڈر ری فل',
+        category: 'Gas & Essentials',
+        unit: '45.4 kg',
+        price: 11900,
+        inStock: true,
+        visualKey: 'lpg',
+        image: 'https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'ess-oil',
+        name: 'Cooking Oil',
+        nameUr: 'کھانے کا تیل',
+        category: 'Gas & Essentials',
+        unit: '1 Litre',
+        price: 540,
+        inStock: true,
+        visualKey: 'oil',
+        image: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 'ess-rice',
+        name: 'Basmati Rice',
+        nameUr: 'باسمتی چاول',
+        category: 'Gas & Essentials',
+        unit: '1 kg',
+        price: 340,
+        inStock: true,
+        visualKey: 'rice',
+        image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80'
+      }
+    ];
+
+    /* =====================================================================
+       2. STORAGE & STATE INITIALIZATION
+    ===================================================================== */
+    function normalizeWhatsApp(raw) {
+      const digits = String(raw || '').replace(/[^0-9]/g, '');
+      if (!digits) return '';
+      if (digits.startsWith('92')) return digits;
+      if (digits.startsWith('0')) return '92' + digits.slice(1);
+      if (digits.length === 10 && digits.startsWith('3')) return '92' + digits;
+      return digits;
+    }
+
+    function readStorage(key, fallback) {
+      try {
+        const raw = window.localStorage.getItem(key);
+        if (!raw) return fallback;
+        const parsed = JSON.parse(raw);
+        return parsed !== null && parsed !== undefined ? parsed : fallback;
+      } catch (e) {
+        return fallback;
+      }
+    }
+
+    function writeStorage(key, val) {
+      try {
+        window.localStorage.setItem(key, JSON.stringify(val));
+      } catch (e) {
+        // Ignore storage quota errors gracefully
+      }
+    }
+
+    const savedSettings = readStorage(STORAGE_KEYS.SETTINGS, {});
+    const normalizedSavedWa = normalizeWhatsApp(savedSettings.whatsappNumber);
+    const shouldMigrateWa =
+      !normalizedSavedWa ||
+      normalizedSavedWa === '923001234567' ||
+      normalizedSavedWa === '923000000000';
+
+    let storeSettings = {
+      ...DEFAULT_SETTINGS,
+      ...savedSettings,
+      whatsappNumber: shouldMigrateWa ? DEFAULT_WHATSAPP : normalizedSavedWa
+    };
+    writeStorage(STORAGE_KEYS.SETTINGS, storeSettings);
+
+    let products = readStorage(STORAGE_KEYS.PRODUCTS, DEFAULT_PRODUCTS);
+    if (!Array.isArray(products) || products.length === 0) {
+      products = [...DEFAULT_PRODUCTS];
+      writeStorage(STORAGE_KEYS.PRODUCTS, products);
+    }
+
+    let ordersLog = readStorage(STORAGE_KEYS.ORDERS, []);
+    if (!Array.isArray(ordersLog)) {
+      ordersLog = [];
+    }
+
+    let activeCategory = 'All Items';
+    let searchTerm = '';
+    let cart = {};
+    let isAdminUnlocked = false;
+    let currentAdminTab = 'products';
+    let lastReceiptText = '';
+    let pendingNewProdImageData = '';
+    let langMode = readStorage(STORAGE_KEYS.LANG_MODE, 'bilingual');
+
+    /* =====================================================================
+       3. FORMATTING, LANGUAGE & MODAL HELPERS
+    ===================================================================== */
+    function formatRs(val) {
+      const n = Number(val) || 0;
+      return 'Rs. ' + n.toLocaleString('en-US');
+    }
+
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function applyLanguageMode() {
+      const btnText = document.getElementById('langToggleText');
+      if (langMode === 'en') {
+        document.body.classList.add('lang-en-only');
+        if (btnText) btnText.textContent = 'EN Only';
+      } else {
+        document.body.classList.remove('lang-en-only');
+        if (btnText) btnText.textContent = 'EN + اردو';
+      }
+    }
+
+    function toggleLanguageMode() {
+      langMode = langMode === 'bilingual' ? 'en' : 'bilingual';
+      writeStorage(STORAGE_KEYS.LANG_MODE, langMode);
+      applyLanguageMode();
+      renderCategoryPills();
+      renderProductGrid();
+    }
+
+    function getCategoryBadgeStyle(category) {
+      if (category === 'Gas & Essentials') {
+        return {
+          label: 'Gas & Essentials / گیس و اشیاء',
+          badge: 'bg-amber-50/95 text-amber-800 border-amber-200'
+        };
+      }
+      if (category === 'Fruits') {
+        return {
+          label: 'Fruits / پھل',
+          badge: 'bg-rose-50/95 text-rose-800 border-rose-200'
+        };
+      }
+      return {
+        label: 'Vegetables / سبزیاں',
+        badge: 'bg-emerald-50/95 text-emerald-800 border-emerald-200'
+      };
+    }
+
+    function showToast(msg, variant = 'default') {
+      const banner = document.getElementById('toastBanner');
+      const card = document.getElementById('toastCard');
+      const textEl = document.getElementById('toastMessage');
+      if (!banner || !card || !textEl) return;
+
+      textEl.textContent = msg;
+      card.className = 'rounded-2xl px-4 py-3 shadow-xl border flex items-center justify-between gap-3 text-sm font-medium ' +
+        (variant === 'error'
+          ? 'bg-red-700 text-white border-red-500'
+          : 'bg-slate-900 text-white border-slate-700');
+
+      banner.classList.remove('hidden');
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(hideToast, 3400);
+    }
+
+    function hideToast() {
+      const banner = document.getElementById('toastBanner');
+      if (banner) banner.classList.add('hidden');
+    }
+
+    function openPublishModal() {
+      const overlay = document.getElementById('publishModalOverlay');
+      if (!overlay) return;
+      const box = document.getElementById('promoMessageBox');
+      if (box) {
+        const currentOrigin = window.location.origin && window.location.origin.startsWith('http')
+          ? window.location.href
+          : '[Paste Your Live Store Link Here]';
+        box.textContent =
+`*${storeSettings.storeName}* (Rahim Yar Khan)
+تازہ سبزیاں، پھل، ایل پی جی گیس سلنڈر اور روزمرہ اشیاء اب آن لائن آرڈر کریں!
+
+Order fresh vegetables, seasonal fruits, LPG cylinder refills & daily essentials with express home delivery.
+Tap the link below to view today's rates and order on WhatsApp:
+${currentOrigin}
+
+WhatsApp Order Line: ${storeSettings.whatsappNumber || DEFAULT_WHATSAPP}`;
+      }
+      overlay.classList.remove('hidden');
+      overlay.classList.add('flex');
+    }
+
+    function closePublishModal() {
+      const overlay = document.getElementById('publishModalOverlay');
+      if (overlay) {
+        overlay.classList.add('hidden');
+        overlay.classList.remove('flex');
+      }
+    }
+
+    function copyPromoMessage() {
+      const text = document.getElementById('promoMessageBox')?.textContent || '';
+      if (!text) return;
+      copyStringToClipboard(text, 'WhatsApp broadcast message copied.');
+    }
+
+    /* =====================================================================
+       4. STOREFRONT RENDERING
+    ===================================================================== */
+    function syncStoreBranding() {
+      document.title = `${storeSettings.storeName} — Rahim Yar Khan`;
+      const hName = document.getElementById('headerStoreName');
+      const hSub = document.getElementById('headerSubtitle');
+      const fName = document.getElementById('footerStoreName');
+      const policyEl = document.getElementById('deliveryPolicyBanner');
+
+      if (hName) hName.textContent = storeSettings.storeName;
+      if (hSub) hSub.textContent = storeSettings.tagline || 'Rahim Yar Khan • Express Home Delivery';
+      if (fName) fName.textContent = storeSettings.storeName;
+
+      if (policyEl) {
+        const fee = Number(storeSettings.deliveryFee) || 0;
+        const minFree = Number(storeSettings.freeDeliveryMin) || 0;
+        if (fee === 0) {
+          policyEl.textContent = 'Free Home Delivery across Rahim Yar Khan';
+        } else if (minFree > 0) {
+          policyEl.textContent = `Delivery ${formatRs(fee)} • Free above ${formatRs(minFree)}`;
+        } else {
+          policyEl.textContent = `Flat ${formatRs(fee)} Express Delivery in Rahim Yar Khan`;
+        }
+      }
+    }
+
+    function renderCategoryPills() {
+      const container = document.getElementById('categoryPillsContainer');
+      if (!container) return;
+
+      container.innerHTML = CATEGORIES.map((cat) => {
+        const active = activeCategory === cat.id;
+        const displayLabel = langMode === 'en' ? cat.id : cat.label;
+        return `
+          <button
+            type="button"
+            onclick="selectCategory('${escapeHtml(cat.id)}')"
+            class="px-3.5 py-1.5 rounded-full text-xs font-bold border whitespace-nowrap transition shrink-0 ${
+              active
+                ? 'bg-brand-800 text-white border-brand-800 shadow-2xs'
+                : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50 hover:text-slate-900'
+            }"
+          >
+            ${escapeHtml(displayLabel)}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function selectCategory(cat) {
+      activeCategory = cat;
+      renderCategoryPills();
+      renderProductGrid();
+    }
+
+    function handleSearch(val) {
+      searchTerm = String(val || '').trim();
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (clearBtn) {
+        clearBtn.classList.toggle('hidden', searchTerm.length === 0);
+      }
+      renderProductGrid();
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('searchInput');
+      if (input) input.value = '';
+      handleSearch('');
+    }
+
+    function resetFilters() {
+      activeCategory = 'All Items';
+      searchTerm = '';
+      const input = document.getElementById('searchInput');
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (input) input.value = '';
+      if (clearBtn) clearBtn.classList.add('hidden');
+      renderCategoryPills();
+      renderProductGrid();
+    }
+
+    function renderProductGrid() {
+      const grid = document.getElementById('productGrid');
+      const emptyBox = document.getElementById('emptyStateBox');
+      const titleEl = document.getElementById('catalogSectionTitle');
+      const countEl = document.getElementById('catalogCountBadge');
+      if (!grid || !emptyBox) return;
+
+      const currentCatObj = CATEGORIES.find((c) => c.id === activeCategory);
+      if (titleEl) {
+        titleEl.textContent = currentCatObj
+          ? (langMode === 'en' ? currentCatObj.id : currentCatObj.label)
+          : activeCategory;
+      }
+
+      const q = searchTerm.toLowerCase();
+      const filtered = products.filter((p) => {
+        const matchCat = activeCategory === 'All Items' || p.category === activeCategory;
+        const matchQuery =
+          !q ||
+          String(p.name).toLowerCase().includes(q) ||
+          String(p.nameUr || '').toLowerCase().includes(q) ||
+          String(p.category).toLowerCase().includes(q) ||
+          String(p.unit).toLowerCase().includes(q);
+        return matchCat && matchQuery;
+      });
+
+      if (countEl) {
+        countEl.textContent = `${filtered.length} ${filtered.length === 1 ? 'item' : 'items'}`;
+      }
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        emptyBox.classList.remove('hidden');
+        return;
+      }
+
+      emptyBox.classList.add('hidden');
+
+      grid.innerHTML = filtered.map((prod) => {
+        const qty = Number(cart[prod.id] || 0);
+        const vis = getCategoryBadgeStyle(prod.category);
+        const inStock = prod.inStock !== false;
+        const vKey = prod.visualKey || (prod.category === 'Gas & Essentials' ? 'lpg' : prod.category === 'Fruits' ? 'apple' : 'tomato');
+        const imgSrc = prod.image && String(prod.image).trim()
+          ? String(prod.image).trim()
+          : buildStudioFallbackSvg(vKey);
+
+        return `
+          <article class="bg-white rounded-2xl border ${inStock ? 'border-slate-200 hover:border-brand-500/50 hover:shadow-md' : 'border-slate-200 opacity-75'} overflow-hidden flex flex-col justify-between transition group">
+            <div>
+              <!-- Product Photograph with Guaranteed Studio SVG Fallback -->
+              <div class="relative aspect-[4/3] w-full bg-slate-100 overflow-hidden">
+                <img
+                  src="${escapeHtml(imgSrc)}"
+                  alt="${escapeHtml(prod.name)}"
+                  loading="lazy"
+                  onerror="handleProductImgError(this, '${escapeHtml(vKey)}')"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-lg text-[10px] font-bold border backdrop-blur-xs shadow-2xs ${vis.badge}">
+                  ${escapeHtml(langMode === 'en' ? prod.category : vis.label)}
+                </span>
+                <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full text-[10px] font-bold border backdrop-blur-xs shadow-2xs ${
+                  inStock
+                    ? 'bg-emerald-50/95 text-emerald-700 border-emerald-200'
+                    : 'bg-slate-900/80 text-white border-slate-700'
+                }">
+                  ${inStock ? 'In Stock' : 'Out of Stock'}
+                </span>
+              </div>
+
+              <!-- Bilingual Product Title & Unit -->
+              <div class="p-3.5 pb-2">
+                <h3 class="text-sm sm:text-[15px] font-extrabold text-slate-900 leading-snug">
+                  ${escapeHtml(prod.name)}
+                </h3>
+                ${
+                  prod.nameUr
+                    ? `<p class="urdu-label font-urdu text-sm font-semibold text-brand-800 mt-0.5" dir="rtl">${escapeHtml(prod.nameUr)}</p>`
+                    : ''
+                }
+                <p class="text-xs text-slate-500 font-medium mt-1">${escapeHtml(prod.unit)}</p>
+              </div>
+            </div>
+
+            <!-- Price & Quantity Stepper -->
+            <div class="px-3.5 pb-3.5 pt-2.5 border-t border-slate-100 flex items-center justify-between gap-2">
+              <div class="text-base sm:text-lg font-extrabold text-slate-900 tabular-nums">
+                ${formatRs(prod.price)}
+              </div>
+
+              ${
+                !inStock
+                  ? `<span class="px-2.5 py-1.5 rounded-xl bg-slate-100 text-slate-400 text-xs font-bold">Unavailable</span>`
+                  : qty > 0
+                  ? `
+                    <div class="inline-flex items-center bg-brand-50 border border-brand-200 rounded-xl p-0.5">
+                      <button
+                        type="button"
+                        onclick="updateCartQty('${escapeHtml(prod.id)}', -1)"
+                        aria-label="Decrease quantity"
+                        class="w-7 h-7 rounded-lg bg-white hover:bg-slate-100 text-brand-900 font-extrabold text-sm flex items-center justify-center shadow-2xs transition active:scale-90"
+                      >
+                        −
+                      </button>
+                      <span class="min-w-[26px] text-center text-xs font-extrabold text-brand-900 tabular-nums">${qty}</span>
+                      <button
+                        type="button"
+                        onclick="updateCartQty('${escapeHtml(prod.id)}', 1)"
+                        aria-label="Increase quantity"
+                        class="w-7 h-7 rounded-lg bg-brand-700 hover:bg-brand-800 text-white font-extrabold text-sm flex items-center justify-center shadow-2xs transition active:scale-90"
+                      >
+                        +
+                      </button>
+                    </div>
+                  `
+                  : `
+                    <button
+                      type="button"
+                      onclick="updateCartQty('${escapeHtml(prod.id)}', 1)"
+                      class="px-3.5 py-1.5 rounded-xl bg-brand-800 hover:bg-brand-900 text-white text-xs font-bold shadow-2xs transition active:scale-95"
+                    >
+                      + Add
+                    </button>
+                  `
+              }
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    /* =====================================================================
+       5. CART, CHECKOUT & WHATSAPP DISPATCH
+    ===================================================================== */
+    function updateCartQty(productId, delta) {
+      const prod = products.find((p) => p.id === productId);
+      if (!prod) return;
+      if (delta > 0 && prod.inStock === false) {
+        showToast('This item is currently out of stock.', 'error');
+        return;
+      }
+
+      const next = (Number(cart[productId]) || 0) + delta;
+      if (next <= 0) {
+        delete cart[productId];
+      } else {
+        cart[productId] = next;
+      }
+
+      renderProductGrid();
+      refreshCartState();
+    }
+
+    function removeFromCart(productId) {
+      delete cart[productId];
+      renderProductGrid();
+      refreshCartState();
+    }
+
+    function calculateCartTotals() {
+      let itemCount = 0;
+      let subtotal = 0;
+      const items = [];
+
+      Object.keys(cart).forEach((id) => {
+        const qty = Number(cart[id]) || 0;
+        const prod = products.find((p) => p.id === id);
+        if (prod && qty > 0) {
+          const lineTotal = qty * (Number(prod.price) || 0);
+          itemCount += qty;
+          subtotal += lineTotal;
+          items.push({
+            id: prod.id,
+            name: prod.name,
+            nameUr: prod.nameUr || '',
+            unit: prod.unit,
+            price: Number(prod.price) || 0,
+            qty,
+            lineTotal
+          });
+        }
+      });
+
+      const baseFee = Number(storeSettings.deliveryFee) || 0;
+      const freeThreshold = Number(storeSettings.freeDeliveryMin) || 0;
+      const qualifiesFree = freeThreshold > 0 && subtotal >= freeThreshold;
+      const deliveryFee = itemCount === 0 ? 0 : qualifiesFree ? 0 : baseFee;
+      const grandTotal = subtotal + deliveryFee;
+
+      return { itemCount, subtotal, deliveryFee, grandTotal, items, qualifiesFree, freeThreshold };
+    }
+
+    function refreshCartState() {
+      const totals = calculateCartTotals();
+      const bar = document.getElementById('floatingCartBar');
+      const countEl = document.getElementById('cartBarItemCount');
+      const totalEl = document.getElementById('cartBarTotalAmount');
+
+      if (countEl) countEl.textContent = String(totals.itemCount);
+      if (totalEl) totalEl.textContent = formatRs(totals.subtotal);
+      if (bar) {
+        bar.classList.toggle('hidden', totals.itemCount === 0);
+      }
+
+      const listEl = document.getElementById('drawerCartItems');
+      const subEl = document.getElementById('drawerSubtotal');
+      const delEl = document.getElementById('drawerDeliveryFee');
+      const grandEl = document.getElementById('drawerGrandTotal');
+      const freeHintEl = document.getElementById('freeDeliveryHint');
+
+      if (subEl) subEl.textContent = formatRs(totals.subtotal);
+      if (delEl) delEl.textContent = totals.deliveryFee === 0 ? 'FREE' : formatRs(totals.deliveryFee);
+      if (grandEl) grandEl.textContent = formatRs(totals.grandTotal);
+
+      if (freeHintEl) {
+        if (totals.itemCount > 0 && totals.freeThreshold > 0) {
+          freeHintEl.classList.remove('hidden');
+          if (totals.qualifiesFree) {
+            freeHintEl.textContent = 'You unlocked FREE Home Delivery on this order!';
+          } else {
+            const diff = totals.freeThreshold - totals.subtotal;
+            freeHintEl.textContent = `Add ${formatRs(diff)} more to unlock FREE Home Delivery.`;
+          }
+        } else {
+          freeHintEl.classList.add('hidden');
+        }
+      }
+
+      if (listEl) {
+        if (totals.items.length === 0) {
+          listEl.innerHTML = `
+            <div class="text-center py-8 bg-slate-50 rounded-2xl border border-slate-200 text-xs text-slate-500">
+              Your cart is empty. Add fresh produce, fruits, or LPG items to place an order.
+            </div>
+          `;
+        } else {
+          listEl.innerHTML = totals.items.map((item) => `
+            <div class="bg-white border border-slate-200 rounded-2xl p-3 flex items-center justify-between gap-3">
+              <div class="min-w-0">
+                <h5 class="text-sm font-bold text-slate-900 truncate">
+                  ${escapeHtml(item.name)}
+                  ${item.nameUr ? `<span class="urdu-label font-urdu text-xs font-normal text-brand-800 ml-1">(${escapeHtml(item.nameUr)})</span>` : ''}
+                </h5>
+                <p class="text-xs text-slate-500">${formatRs(item.price)} • ${escapeHtml(item.unit)}</p>
+              </div>
+
+              <div class="flex items-center gap-2 shrink-0">
+                <div class="inline-flex items-center bg-slate-100 rounded-xl p-0.5">
+                  <button type="button" onclick="updateCartQty('${escapeHtml(item.id)}', -1)" class="w-7 h-7 rounded-lg bg-white text-slate-800 font-bold text-xs shadow-2xs">−</button>
+                  <span class="min-w-[24px] text-center text-xs font-extrabold tabular-nums">${item.qty}</span>
+                  <button type="button" onclick="updateCartQty('${escapeHtml(item.id)}', 1)" class="w-7 h-7 rounded-lg bg-brand-700 text-white font-bold text-xs shadow-2xs">+</button>
+                </div>
+                <span class="text-xs sm:text-sm font-extrabold text-slate-900 min-w-[68px] text-right tabular-nums">
+                  ${formatRs(item.lineTotal)}
+                </span>
+                <button
+                  type="button"
+                  onclick="removeFromCart('${escapeHtml(item.id)}')"
+                  class="text-slate-400 hover:text-red-600 p-1 transition"
+                  aria-label="Remove item"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                </button>
+              </div>
+            </div>
+          `).join('');
+        }
+      }
+    }
+
+    function openCartDrawer() {
+      refreshCartState();
+      const overlay = document.getElementById('cartDrawerOverlay');
+      if (overlay) {
+        overlay.classList.remove('hidden');
+        overlay.classList.add('flex');
+      }
+    }
+
+    function closeCartDrawer() {
+      const overlay = document.getElementById('cartDrawerOverlay');
+      if (overlay) {
+        overlay.classList.add('hidden');
+        overlay.classList.remove('flex');
+      }
+    }
+
+    function formatWhatsAppReceipt(order) {
+      const itemLines = order.items
+        .map((it, idx) => {
+          const bilingualTitle = it.nameUr ? `${it.name} / ${it.nameUr}` : it.name;
+          return `${idx + 1}. ${bilingualTitle} (${it.qty} x ${it.unit}) - Rs. ${it.lineTotal}`;
+        })
+        .join('\n');
+
+      const lines = [
+        `*NEW ORDER - AL KHAIR GAS & VEGETABLES*`,
+        `*Order ID:* ${order.orderId}`,
+        `*Date & Time:* ${order.dateTime}`,
+        `--------------------------------`,
+        `*Customer:* ${order.customerName}`,
+        `*Phone:* ${order.customerPhone}`,
+        `*Address:* ${order.customerAddress}`
+      ];
+
+      if (order.note) {
+        lines.push(`*Note:* ${order.note}`);
+      }
+
+      lines.push(
+        `--------------------------------`,
+        `*Order Items:*`,
+        itemLines,
+        `--------------------------------`,
+        `*Subtotal:* Rs. ${order.subtotal}`,
+        `*Delivery:* ${order.deliveryFee === 0 ? 'FREE' : 'Rs. ' + order.deliveryFee}`,
+        `*GRAND TOTAL:* *Rs. ${order.grandTotal}*`
+      );
+
+      return lines.join('\n');
+    }
+
+    function buildWhatsAppUrl(targetNumber, text) {
+      const cleanPhone = normalizeWhatsApp(targetNumber) || DEFAULT_WHATSAPP;
+      return `https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`;
+    }
+
+    function submitWhatsAppOrder(event) {
+      event.preventDefault();
+
+      const totals = calculateCartTotals();
+      if (totals.items.length === 0) {
+        showToast('Please add at least one item to your cart first.', 'error');
+        return;
+      }
+
+      const customerName = String(document.getElementById('custName')?.value || '').trim();
+      const customerPhone = String(document.getElementById('custPhone')?.value || '').trim();
+      const customerAddress = String(document.getElementById('custAddress')?.value || '').trim();
+      const note = String(document.getElementById('custNote')?.value || '').trim();
+
+      if (!customerName || !customerPhone || !customerAddress) {
+        showToast('Please complete your name, mobile number, and delivery address.', 'error');
+        return;
+      }
+
+      const targetWa = normalizeWhatsApp(storeSettings.whatsappNumber) || DEFAULT_WHATSAPP;
+      const now = new Date();
+      const orderId = 'AK-' + String(now.getTime()).slice(-6);
+      const dateTime = now.toLocaleString('en-PK', {
+        dateStyle: 'medium',
+        timeStyle: 'short'
+      });
+
+      const orderRecord = {
+        orderId,
+        dateTime,
+        customerName,
+        customerPhone,
+        customerAddress,
+        note,
+        items: totals.items,
+        subtotal: totals.subtotal,
+        deliveryFee: totals.deliveryFee,
+        grandTotal: totals.grandTotal,
+        shopWhatsApp: targetWa
+      };
+
+      const receiptText = formatWhatsAppReceipt(orderRecord);
+      const waUrl = buildWhatsAppUrl(targetWa, receiptText);
+
+      ordersLog.unshift(orderRecord);
+      writeStorage(STORAGE_KEYS.ORDERS, ordersLog);
+      lastReceiptText = receiptText;
+
+      const confirmBox = document.getElementById('orderConfirmationBox');
+      const confirmHeading = document.getElementById('confirmOrderHeading');
+      const fallbackLink = document.getElementById('fallbackWhatsAppLink');
+
+      if (confirmHeading) {
+        confirmHeading.textContent = `Order #${orderId} Ready!`;
+      }
+      if (fallbackLink) {
+        fallbackLink.href = waUrl;
+      }
+      if (confirmBox) {
+        confirmBox.classList.remove('hidden');
+      }
+
+      cart = {};
+      renderProductGrid();
+      refreshCartState();
+
+      showToast(`Order #${orderId} created! Opening WhatsApp...`);
+      window.location.assign(waUrl);
+    }
+
+    function copyLastReceipt() {
+      if (!lastReceiptText) return;
+      copyStringToClipboard(lastReceiptText, 'Order receipt copied to clipboard.');
+    }
+
+    function copyStringToClipboard(text, successMsg) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          () => showToast(successMsg),
+          () => fallbackCopyText(text, successMsg)
+        );
+      } else {
+        fallbackCopyText(text, successMsg);
+      }
+    }
+
+    function fallbackCopyText(text, successMsg) {
+      try {
+        const el = document.createElement('textarea');
+        el.value = text;
+        el.style.position = 'fixed';
+        el.style.opacity = '0';
+        document.body.appendChild(el);
+        el.focus();
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        showToast(successMsg);
+      } catch (e) {
+        showToast('Unable to copy automatically.', 'error');
+      }
+    }
+
+    /* =====================================================================
+       6. PIN-PROTECTED OWNER / ADMIN PANEL
+    ===================================================================== */
+    function openAdminModal() {
+      const overlay = document.getElementById('adminModalOverlay');
+      if (!overlay) return;
+      overlay.classList.remove('hidden');
+      overlay.classList.add('flex');
+
+      const pinGate = document.getElementById('adminPinGate');
+      const dash = document.getElementById('adminDashboardContent');
+      const lockBtn = document.getElementById('adminLockActionBtn');
+      const errEl = document.getElementById('adminPinError');
+
+      if (errEl) errEl.classList.add('hidden');
+
+      if (isAdminUnlocked) {
+        if (pinGate) pinGate.classList.add('hidden');
+        if (dash) dash.classList.remove('hidden');
+        if (lockBtn) lockBtn.classList.remove('hidden');
+        renderAdminDashboard();
+      } else {
+        if (dash) dash.classList.add('hidden');
+        if (lockBtn) lockBtn.classList.add('hidden');
+        if (pinGate) pinGate.classList.remove('hidden');
+        const pinInput = document.getElementById('adminPinInput');
+        if (pinInput) {
+          pinInput.value = '';
+          setTimeout(() => pinInput.focus(), 60);
+        }
+      }
+    }
+
+    function closeAdminModal() {
+      const overlay = document.getElementById('adminModalOverlay');
+      if (overlay) {
+        overlay.classList.add('hidden');
+        overlay.classList.remove('flex');
+      }
+    }
+
+    function handleAdminPinSubmit(event) {
+      event.preventDefault();
+      const input = document.getElementById('adminPinInput');
+      const errEl = document.getElementById('adminPinError');
+      const entered = String(input?.value || '').trim();
+      const validPin = String(storeSettings.adminPin || '1234').trim();
+
+      if (entered === validPin) {
+        isAdminUnlocked = true;
+        openAdminModal();
+        showToast('Admin dashboard unlocked.');
+      } else {
+        if (errEl) {
+          errEl.textContent = 'Incorrect PIN. Please try again.';
+          errEl.classList.remove('hidden');
+        }
+        if (input) input.select();
+      }
+    }
+
+    function lockAdminSession() {
+      isAdminUnlocked = false;
+      closeAdminModal();
+      showToast('Admin dashboard locked.');
+    }
+
+    function switchAdminTab(tab) {
+      currentAdminTab = tab;
+      const tabMap = {
+        products: { btn: 'tabBtnProducts', panel: 'panelProducts' },
+        orders: { btn: 'tabBtnOrders', panel: 'panelOrders' },
+        settings: { btn: 'tabBtnSettings', panel: 'panelSettings' }
+      };
+
+      Object.keys(tabMap).forEach((key) => {
+        const isCurrent = key === tab;
+        const btn = document.getElementById(tabMap[key].btn);
+        const panel = document.getElementById(tabMap[key].panel);
+
+        if (btn) {
+          btn.className = isCurrent
+            ? 'px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-bold border-b-2 border-brand-700 text-brand-800 bg-white whitespace-nowrap transition'
+            : 'px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-bold border-b-2 border-transparent text-slate-600 hover:text-slate-900 whitespace-nowrap transition';
+        }
+        if (panel) {
+          panel.classList.toggle('hidden', !isCurrent);
+        }
+      });
+
+      renderAdminDashboard();
+    }
+
+    function renderAdminDashboard() {
+      if (!isAdminUnlocked) return;
+      renderAdminProductsList();
+      renderAdminOrdersLog();
+      populateSettingsFields();
+    }
+
+    function renderAdminProductsList() {
+      const container = document.getElementById('adminProductRows');
+      if (!container) return;
+
+      if (products.length === 0) {
+        container.innerHTML = `<div class="p-6 text-center text-xs text-slate-500">No items in catalog. Add your first item above.</div>`;
+        return;
+      }
+
+      container.innerHTML = products.map((p) => {
+        const inStock = p.inStock !== false;
+        const vKey = p.visualKey || (p.category === 'Gas & Essentials' ? 'lpg' : p.category === 'Fruits' ? 'apple' : 'tomato');
+        const imgSrc = p.image && String(p.image).trim()
+          ? String(p.image).trim()
+          : buildStudioFallbackSvg(vKey);
+
+        return `
+          <div class="p-3.5 space-y-2.5 bg-white hover:bg-slate-50/60 transition">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+              <div class="flex items-center gap-3 flex-1 min-w-0">
+                <img
+                  src="${escapeHtml(imgSrc)}"
+                  alt="${escapeHtml(p.name)}"
+                  onerror="handleProductImgError(this, '${escapeHtml(vKey)}')"
+                  class="w-12 h-12 rounded-xl object-cover border border-slate-200 shrink-0 bg-slate-100"
+                />
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 flex-1">
+                  <input
+                    id="editName-${escapeHtml(p.id)}"
+                    type="text"
+                    value="${escapeHtml(p.name)}"
+                    onchange="saveInlineProduct('${escapeHtml(p.id)}')"
+                    class="rounded-xl border border-slate-200 focus:border-brand-600 px-3 py-1.5 text-xs sm:text-sm font-bold text-slate-900 outline-none"
+                    title="English Name"
+                  />
+                  <input
+                    id="editNameUr-${escapeHtml(p.id)}"
+                    type="text"
+                    dir="rtl"
+                    value="${escapeHtml(p.nameUr || '')}"
+                    onchange="saveInlineProduct('${escapeHtml(p.id)}')"
+                    placeholder="اردو نام"
+                    class="rounded-xl border border-slate-200 focus:border-brand-600 px-3 py-1.5 text-xs sm:text-sm font-urdu text-brand-900 outline-none"
+                    title="Urdu Name"
+                  />
+                  <select
+                    id="editCat-${escapeHtml(p.id)}"
+                    onchange="saveInlineProduct('${escapeHtml(p.id)}')"
+                    class="rounded-xl border border-slate-200 focus:border-brand-600 px-2.5 py-1.5 text-xs text-slate-700 bg-white outline-none"
+                    title="Category"
+                  >
+                    ${CATEGORIES.filter((c) => c.id !== 'All Items')
+                      .map(
+                        (c) =>
+                          `<option value="${escapeHtml(c.id)}" ${p.category === c.id ? 'selected' : ''}>${escapeHtml(c.label)}</option>`
+                      )
+                      .join('')}
+                  </select>
+                  <input
+                    id="editUnit-${escapeHtml(p.id)}"
+                    type="text"
+                    value="${escapeHtml(p.unit)}"
+                    onchange="saveInlineProduct('${escapeHtml(p.id)}')"
+                    class="rounded-xl border border-slate-200 focus:border-brand-600 px-3 py-1.5 text-xs text-slate-700 outline-none"
+                    title="Unit / Weight"
+                  />
+                </div>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-2 justify-end shrink-0">
+                <div class="flex items-center gap-1 bg-slate-50 border border-slate-300 rounded-xl px-2.5 py-1">
+                  <span class="text-xs font-bold text-slate-500">Rs.</span>
+                  <input
+                    id="editPrice-${escapeHtml(p.id)}"
+                    type="number"
+                    min="1"
+                    step="1"
+                    value="${Number(p.price) || 0}"
+                    onchange="saveInlineProduct('${escapeHtml(p.id)}')"
+                    class="w-20 bg-transparent text-xs sm:text-sm font-extrabold text-brand-900 outline-none tabular-nums"
+                    title="Price in Rs."
+                  />
+                </div>
+
+                <button
+                  type="button"
+                  onclick="toggleProductStock('${escapeHtml(p.id)}')"
+                  class="px-3 py-1.5 rounded-xl text-xs font-bold border transition ${
+                    inStock
+                      ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
+                      : 'bg-amber-50 text-amber-800 border-amber-200 hover:bg-amber-100'
+                  }"
+                >
+                  ${inStock ? 'In Stock' : 'Out of Stock'}
+                </button>
+
+                <button
+                  type="button"
+                  onclick="deleteProduct('${escapeHtml(p.id)}')"
+                  class="p-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 transition"
+                  title="Delete item"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pl-0 sm:pl-15">
+              <input
+                id="editImage-${escapeHtml(p.id)}"
+                type="text"
+                value="${escapeHtml(p.image && !String(p.image).startsWith('data:') ? p.image : '')}"
+                placeholder="${p.image && String(p.image).startsWith('data:') ? 'Custom uploaded photo active (paste URL to replace)' : 'Paste image URL...'}"
+                onchange="saveInlineProduct('${escapeHtml(p.id)}')"
+                class="flex-1 rounded-xl border border-slate-200 focus:border-brand-600 px-3 py-1.5 text-xs text-slate-600 outline-none"
+              />
+              <label class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold cursor-pointer text-center shrink-0 transition">
+                <span>Upload Photo</span>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onchange="handleInlineProductFile('${escapeHtml(p.id)}', this)"
+                  class="hidden"
+                />
+              </label>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function saveInlineProduct(id) {
+      const name = String(document.getElementById(`editName-${id}`)?.value || '').trim();
+      const nameUr = String(document.getElementById(`editNameUr-${id}`)?.value || '').trim();
+      const category = String(document.getElementById(`editCat-${id}`)?.value || 'Vegetables');
+      const unit = String(document.getElementById(`editUnit-${id}`)?.value || '1 kg').trim();
+      const price = Math.round(Number(document.getElementById(`editPrice-${id}`)?.value || 0));
+      const typedImg = String(document.getElementById(`editImage-${id}`)?.value || '').trim();
+
+      if (!name || !unit || price <= 0) {
+        showToast('Please enter a valid item name, unit, and price.', 'error');
+        renderAdminProductsList();
+        return;
+      }
+
+      products = products.map((p) => {
+        if (p.id !== id) return p;
+        const nextImage = typedImg ? typedImg : p.image;
+        return { ...p, name, nameUr, category, unit, price, image: nextImage };
+      });
+      writeStorage(STORAGE_KEYS.PRODUCTS, products);
+      renderAdminProductsList();
+      renderProductGrid();
+      refreshCartState();
+      showToast(`Updated "${name}" (${formatRs(price)}).`);
+    }
+
+    function toggleProductStock(id) {
+      const target = products.find((p) => p.id === id);
+      if (!target) return;
+      const nextStock = target.inStock === false;
+      products = products.map((p) => (p.id === id ? { ...p, inStock: nextStock } : p));
+      if (!nextStock && cart[id]) {
+        delete cart[id];
+      }
+      writeStorage(STORAGE_KEYS.PRODUCTS, products);
+      renderAdminProductsList();
+      renderProductGrid();
+      refreshCartState();
+      showToast(`${target.name} marked as ${nextStock ? 'In Stock' : 'Out of Stock'}.`);
+    }
+
+    function deleteProduct(id) {
+      const target = products.find((p) => p.id === id);
+      products = products.filter((p) => p.id !== id);
+      if (cart[id]) {
+        delete cart[id];
+      }
+      writeStorage(STORAGE_KEYS.PRODUCTS, products);
+      renderAdminProductsList();
+      renderProductGrid();
+      refreshCartState();
+      showToast(`Removed "${target ? target.name : 'item'}" from catalog.`);
+    }
+
+    function handleInlineProductFile(id, inputEl) {
+      const file = inputEl?.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (ev) {
+        const dataUrl = String(ev.target?.result || '');
+        if (!dataUrl) return;
+        products = products.map((p) => (p.id === id ? { ...p, image: dataUrl } : p));
+        writeStorage(STORAGE_KEYS.PRODUCTS, products);
+        renderAdminProductsList();
+        renderProductGrid();
+        showToast('Custom product photo updated.');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handleNewProductFile(inputEl) {
+      const file = inputEl?.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (ev) {
+        pendingNewProdImageData = String(ev.target?.result || '');
+        if (pendingNewProdImageData) {
+          showToast(`Photo "${file.name}" attached.`);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handleAddNewProduct(event) {
+      event.preventDefault();
+      const nameInput = document.getElementById('addProdName');
+      const nameUrInput = document.getElementById('addProdNameUr');
+      const catInput = document.getElementById('addProdCategory');
+      const unitInput = document.getElementById('addProdUnit');
+      const priceInput = document.getElementById('addProdPrice');
+      const imageInput = document.getElementById('addProdImage');
+      const fileInput = document.getElementById('addProdFile');
+
+      const name = String(nameInput?.value || '').trim();
+      const nameUr = String(nameUrInput?.value || '').trim();
+      const category = String(catInput?.value || 'Vegetables');
+      const unit = String(unitInput?.value || '1 kg').trim();
+      const price = Math.round(Number(priceInput?.value || 0));
+      const typedUrl = String(imageInput?.value || '').trim();
+
+      if (!name || !unit || price <= 0) {
+        showToast('Please fill in all fields with a valid price.', 'error');
+        return;
+      }
+
+      const vKey = category === 'Gas & Essentials' ? 'lpg' : category === 'Fruits' ? 'apple' : 'tomato';
+      const finalImage = pendingNewProdImageData || typedUrl || buildStudioFallbackSvg(vKey);
+
+      const newItem = {
+        id: 'item-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6),
+        name,
+        nameUr,
+        category,
+        unit,
+        price,
+        inStock: true,
+        visualKey: vKey,
+        image: finalImage
+      };
+
+      products.unshift(newItem);
+      writeStorage(STORAGE_KEYS.PRODUCTS, products);
+
+      if (nameInput) nameInput.value = '';
+      if (nameUrInput) nameUrInput.value = '';
+      if (unitInput) unitInput.value = '';
+      if (priceInput) priceInput.value = '';
+      if (imageInput) imageInput.value = '';
+      if (fileInput) fileInput.value = '';
+      pendingNewProdImageData = '';
+
+      renderAdminProductsList();
+      renderProductGrid();
+      showToast(`Added "${name}" to catalog.`);
+    }
+
+    function resetDefaultCatalog() {
+      products = [...DEFAULT_PRODUCTS];
+      writeStorage(STORAGE_KEYS.PRODUCTS, products);
+      renderAdminProductsList();
+      renderProductGrid();
+      refreshCartState();
+      showToast('Catalog restored to 26 default items and rates.');
+    }
+
+    function renderAdminOrdersLog() {
+      const container = document.getElementById('adminOrdersContainer');
+      if (!container) return;
+
+      if (ordersLog.length === 0) {
+        container.innerHTML = `
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 text-center text-xs text-slate-500">
+            No orders logged yet. Submitted customer orders will appear here.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = ordersLog.map((ord) => {
+        const receipt = formatWhatsAppReceipt(ord);
+        const waHref = buildWhatsAppUrl(ord.shopWhatsApp || storeSettings.whatsappNumber, receipt);
+
+        return `
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-2.5">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 pb-2">
+              <div>
+                <span class="text-sm font-extrabold text-brand-900 tabular-nums">${escapeHtml(ord.orderId)}</span>
+                <span class="text-xs text-slate-500 ml-2">${escapeHtml(ord.dateTime)}</span>
+              </div>
+              <span class="text-sm font-extrabold text-slate-900 tabular-nums">${formatRs(ord.grandTotal)}</span>
+            </div>
+
+            <div class="text-xs text-slate-700 space-y-1">
+              <div><span class="font-bold">Customer:</span> ${escapeHtml(ord.customerName)} (${escapeHtml(ord.customerPhone)})</div>
+              <div><span class="font-bold">Address:</span> ${escapeHtml(ord.customerAddress)}</div>
+              <div class="text-slate-500">${ord.items.map((i) => `${escapeHtml(i.name)} × ${i.qty}`).join(', ')}</div>
+            </div>
+
+            <div class="flex flex-wrap gap-2 pt-1">
+              <a
+                href="${waHref}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-3.5 py-1.5 rounded-xl bg-brand-700 hover:bg-brand-800 text-white text-xs font-bold transition"
+              >
+                Re-open in WhatsApp
+              </a>
+              <button
+                type="button"
+                onclick="copyLoggedOrder('${escapeHtml(ord.orderId)}')"
+                class="px-3.5 py-1.5 rounded-xl bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 text-xs font-bold transition"
+              >
+                Copy Receipt
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function copyLoggedOrder(orderId) {
+      const ord = ordersLog.find((o) => o.orderId === orderId);
+      if (!ord) return;
+      copyStringToClipboard(formatWhatsAppReceipt(ord), `Receipt for ${orderId} copied.`);
+    }
+
+    function clearOrdersLog() {
+      ordersLog = [];
+      writeStorage(STORAGE_KEYS.ORDERS, []);
+      renderAdminOrdersLog();
+      showToast('Orders log cleared.');
+    }
+
+    function populateSettingsFields() {
+      const nameEl = document.getElementById('setStoreName');
+      const tagEl = document.getElementById('setStoreTagline');
+      const feeEl = document.getElementById('setDeliveryFee');
+      const freeEl = document.getElementById('setFreeDeliveryThreshold');
+      const waEl = document.getElementById('setWhatsAppNumber');
+      const pinEl = document.getElementById('setAdminPin');
+
+      if (nameEl) nameEl.value = storeSettings.storeName;
+      if (tagEl) tagEl.value = storeSettings.tagline || DEFAULT_SETTINGS.tagline;
+      if (feeEl) feeEl.value = storeSettings.deliveryFee;
+      if (freeEl) freeEl.value = storeSettings.freeDeliveryMin;
+      if (waEl) waEl.value = storeSettings.whatsappNumber;
+      if (pinEl) pinEl.value = storeSettings.adminPin;
+
+      updateWaPreview();
+    }
+
+    function updateWaPreview() {
+      const waInput = document.getElementById('setWhatsAppNumber');
+      const preview = document.getElementById('waFormattedPreview');
+      if (!preview) return;
+      const clean = normalizeWhatsApp(waInput?.value || '');
+      preview.textContent = clean || 'Invalid number';
+    }
+
+    function testWhatsAppNumber() {
+      const waInput = document.getElementById('setWhatsAppNumber');
+      const clean = normalizeWhatsApp(waInput?.value || storeSettings.whatsappNumber);
+      if (!clean || clean.length < 10) {
+        showToast('Please enter a valid WhatsApp number first.', 'error');
+        return;
+      }
+      const msg = `Test receipt from ${storeSettings.storeName} (Rahim Yar Khan). WhatsApp checkout is connected properly.`;
+      window.location.assign(buildWhatsAppUrl(clean, msg));
+    }
+
+    function handleSaveStoreSettings(event) {
+      event.preventDefault();
+      const storeName = String(document.getElementById('setStoreName')?.value || '').trim();
+      const tagline = String(document.getElementById('setStoreTagline')?.value || '').trim() || DEFAULT_SETTINGS.tagline;
+      const deliveryFee = Math.max(0, Math.round(Number(document.getElementById('setDeliveryFee')?.value || 0)));
+      const freeDeliveryMin = Math.max(0, Math.round(Number(document.getElementById('setFreeDeliveryThreshold')?.value || 0)));
+      const rawWa = String(document.getElementById('setWhatsAppNumber')?.value || '').trim();
+      const adminPin = String(document.getElementById('setAdminPin')?.value || '').trim();
+
+      const cleanWa = normalizeWhatsApp(rawWa);
+      if (!storeName) {
+        showToast('Store name is required.', 'error');
+        return;
+      }
+      if (!cleanWa || cleanWa.length < 10) {
+        showToast('Please enter a valid WhatsApp number (e.g. 923078242404).', 'error');
+        return;
+      }
+      if (adminPin.length < 4) {
+        showToast('Admin PIN must be at least 4 characters.', 'error');
+        return;
+      }
+
+      storeSettings = {
+        storeName,
+        tagline,
+        deliveryFee,
+        freeDeliveryMin,
+        whatsappNumber: cleanWa,
+        adminPin
+      };
+
+      writeStorage(STORAGE_KEYS.SETTINGS, storeSettings);
+      syncStoreBranding();
+      refreshCartState();
+      populateSettingsFields();
+      showToast('Store settings saved successfully.');
+    }
+
+    /* =====================================================================
+       7. INITIALIZATION
+    ===================================================================== */
+    document.addEventListener('DOMContentLoaded', () => {
+      applyLanguageMode();
+      syncStoreBranding();
+      renderCategoryPills();
+      renderProductGrid();
+      refreshCartState();
+    });
+  </script>
+</body>
+</html>
